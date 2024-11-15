@@ -2435,7 +2435,6 @@ tile_set = SubResource("TileSet_seysh")
 position = Vector2(698, 1521)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(18.3821, 0)
 scale = Vector2(0.771304, 1.13371)
 limit_left = 0
 limit_top = 0
@@ -2448,7 +2447,7 @@ scale = Vector2(5, 5)
 Target = NodePath("../Player")
 
 [node name="Enemy2" parent="." node_paths=PackedStringArray("Target") groups=["Enemies"] instance=ExtResource("9_sina0")]
-position = Vector2(2082, 236)
+position = Vector2(2031, 1683)
 scale = Vector2(5, 5)
 Target = NodePath("../Player")
 
