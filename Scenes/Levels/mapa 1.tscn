@@ -2435,6 +2435,7 @@ tile_set = SubResource("TileSet_seysh")
 position = Vector2(698, 1521)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(18.3821, 0)
 scale = Vector2(0.771304, 1.13371)
 limit_left = 0
 limit_top = 0
