@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cen2266fd010c"]
+
+[ext_resource type="Script" path="res://TrailEffect.gd" id="1_kea68"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ryhd"]
+
+[sub_resource type="Curve" id="Curve_vu1tp"]
+_data = [Vector2(0.0157895, 0.714286), 0.0, 3.05156, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_v14td"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[node name="Trail" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_2ryhd")
+
+[node name="Line2D" type="Line2D" parent="Area2D"]
+width = 15.0
+width_curve = SubResource("Curve_vu1tp")
+gradient = SubResource("Gradient_v14td")
+script = ExtResource("1_kea68")
+MAX_LENGTH = 10

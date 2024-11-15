@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c83sbyilhfpv4"]
+
+[ext_resource type="Script" path="res://Scripts/flipabbleShape.gd" id="1_i6dxf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oh03u"]
+size = Vector2(30.5918, 39.9454)
+
+[node name="FlippableShape" type="CollisionShape2D"]
+position = Vector2(-1, 0)
+scale = Vector2(0.397217, 0.707037)
+shape = SubResource("RectangleShape2D_oh03u")
+script = ExtResource("1_i6dxf")

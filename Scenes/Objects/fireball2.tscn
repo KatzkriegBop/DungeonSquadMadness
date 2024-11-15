@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://sq30o3yj51fe"]
+
+[ext_resource type="Script" path="res://fireSlash.gd" id="1_v7x4o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8h5b0"]
+
+[sub_resource type="Gradient" id="Gradient_5x22r"]
+offsets = PackedFloat32Array(0, 0.401639, 1)
+colors = PackedColorArray(0.34, 0.34, 0.34, 1, 0.21, 0.21, 0.21, 0.827451, 0.28, 0.28, 0.28, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_15kqb"]
+gradient = SubResource("Gradient_5x22r")
+
+[sub_resource type="Curve" id="Curve_e3bcc"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_1vy1l"]
+curve = SubResource("Curve_e3bcc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bnnxd"]
+particle_flag_disable_z = true
+angle_min = -304.2
+angle_max = 304.2
+angular_velocity_min = 162.25
+angular_velocity_max = 162.25
+gravity = Vector3(0, -20.28, 0)
+scale_min = 10.0
+scale_max = 20.0
+scale_curve = SubResource("CurveTexture_1vy1l")
+color_ramp = SubResource("GradientTexture1D_15kqb")
+
+[sub_resource type="Gradient" id="Gradient_pqe2l"]
+offsets = PackedFloat32Array(0, 0.114754, 0.229508, 1)
+colors = PackedColorArray(1, 0, 0.666667, 1, 0, 0.6, 1, 1, 0, 1, 0.933333, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_80o88"]
+gradient = SubResource("Gradient_pqe2l")
+
+[sub_resource type="Curve" id="Curve_2to18"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qctjh"]
+curve = SubResource("Curve_2to18")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_exrwy"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 6.75
+angular_velocity_min = -263.66
+angular_velocity_max = 231.8
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -100.0
+radial_accel_max = -100.0
+scale_min = 3.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_qctjh")
+color_ramp = SubResource("GradientTexture1D_80o88")
+
+[node name="Fireball" type="Node2D"]
+position = Vector2(0, -4)
+scale = Vector2(0.630877, 0.62017)
+script = ExtResource("1_v7x4o")
+Direction = Vector2(2, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_8h5b0")
+
+[node name="Smoke" type="GPUParticles2D" parent="Area2D"]
+visible = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_bnnxd")
+preprocess = 0.5
+
+[node name="Fire" type="GPUParticles2D" parent="Area2D"]
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_exrwy")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,157 @@
+[gd_scene load_steps=24 format=3 uid="uid://d0dcwfg0dlnhq"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_8f2ao"]
+[ext_resource type="Texture2D" uid="uid://btbp0iwq7euj3" path="res://Sprites/Ataque_Ladron.png" id="2_0fw7c"]
+[ext_resource type="Script" path="res://Scripts/animated_sprite_2d.gd" id="2_hm8f0"]
+[ext_resource type="Texture2D" uid="uid://chg8hev80u5tc" path="res://Sprites/Ladron_quieto_Nuevo.png" id="2_xmg4b"]
+[ext_resource type="PackedScene" uid="uid://cnxibisa17a23" path="res://Scenes/Objects/hitbox_component.tscn" id="3_aw84y"]
+[ext_resource type="PackedScene" uid="uid://c83sbyilhfpv4" path="res://Scenes/Objects/flippable_shape.tscn" id="4_1crym"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1slop"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xntv4"]
+atlas = ExtResource("2_0fw7c")
+region = Rect2(0, 0, 1365, 1365)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5w1n"]
+atlas = ExtResource("2_0fw7c")
+region = Rect2(1365, 0, 1365, 1365)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uaon7"]
+atlas = ExtResource("2_0fw7c")
+region = Rect2(2730, 0, 1365, 1365)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcbm0"]
+atlas = ExtResource("2_0fw7c")
+region = Rect2(0, 1365, 1365, 1365)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llcdo"]
+atlas = ExtResource("2_xmg4b")
+region = Rect2(0, 0, 1365, 1365)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6bfs"]
+atlas = ExtResource("2_xmg4b")
+region = Rect2(1365, 0, 1365, 1365)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gij2r"]
+atlas = ExtResource("2_xmg4b")
+region = Rect2(2730, 0, 1365, 1365)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpdrl"]
+atlas = ExtResource("2_xmg4b")
+region = Rect2(0, 1365, 1365, 1365)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qys1p"]
+atlas = ExtResource("2_xmg4b")
+region = Rect2(1365, 1365, 1365, 1365)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpv4w"]
+atlas = ExtResource("2_xmg4b")
+region = Rect2(2730, 1365, 1365, 1365)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24a2l"]
+atlas = ExtResource("2_xmg4b")
+region = Rect2(0, 2730, 1365, 1365)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r51wj"]
+atlas = ExtResource("2_xmg4b")
+region = Rect2(1365, 2730, 1365, 1365)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7v5dg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xntv4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5w1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uaon7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcbm0")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llcdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6bfs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gij2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpdrl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qys1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpv4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24a2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r51wj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="AnimationRootNode" id="AnimationRootNode_68r2t"]
+
+[sub_resource type="Animation" id="Animation_kwber"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5yqmk"]
+_data = {
+"RESET": SubResource("Animation_kwber")
+}
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(5.16807, 5.27567)
+collision_layer = 3
+script = ExtResource("1_8f2ao")
+Health = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_1slop")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.025117, 0.0245169)
+sprite_frames = SubResource("SpriteFrames_7v5dg")
+animation = &"attack"
+autoplay = "default"
+script = ExtResource("2_hm8f0")
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("flipabble_sprite") instance=ExtResource("3_aw84y")]
+position = Vector2(9.53674e-07, -8.88178e-16)
+flipabble_sprite = NodePath("../AnimatedSprite2D")
+
+[node name="FlippableShape" parent="HitboxComponent" instance=ExtResource("4_1crym")]
+position = Vector2(15.9827, 0)
+default_position = Vector2(10, 0)
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath(".")
+tree_root = SubResource("AnimationRootNode_68r2t")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimationTree")
+libraries = {
+"": SubResource("AnimationLibrary_5yqmk")
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

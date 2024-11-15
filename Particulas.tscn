@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbde4hg6qoxxh"]
+
+[ext_resource type="Texture2D" uid="uid://3nuv00h4jjev" path="res://Assets/pixilart-drawing.png" id="1_5g5fe"]
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+emitting = false
+amount = 10
+lifetime = 1.5
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+fixed_fps = 30
+texture = ExtResource("1_5g5fe")
+direction = Vector2(0, 1)
+spread = 50.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 20.0
+angular_velocity_max = 20.0

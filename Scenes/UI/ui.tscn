@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5i8emfr6ra73"]
+
+[ext_resource type="Script" path="res://Scenes/UI/ui_main.gd" id="1_npa1w"]
+[ext_resource type="Script" path="res://Scenes/UI/ui_health.gd" id="2_ielah"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wjv08"]
+font_size = 19
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nn7rg"]
+font_size = 20
+font_color = Color(1, 0, 0, 1)
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_npa1w")
+
+[node name="UI_health" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 13.0
+offset_top = 10.0
+offset_right = 53.0
+offset_bottom = 50.0
+scale = Vector2(4.89947, 6.89694)
+script = ExtResource("2_ielah")
+
+[node name="LifeText" type="Label" parent="UI_health"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 27.0
+scale = Vector2(0.765712, 0.379258)
+text = "Life"
+label_settings = SubResource("LabelSettings_wjv08")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LifeValue" type="Label" parent="UI_health"]
+layout_mode = 0
+offset_top = 10.2944
+offset_right = 40.0
+offset_bottom = 37.2944
+scale = Vector2(0.765712, 0.379258)
+text = "0
+"
+label_settings = SubResource("LabelSettings_nn7rg")
+horizontal_alignment = 1
+vertical_alignment = 1
