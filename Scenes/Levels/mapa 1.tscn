@@ -2448,7 +2448,7 @@ scale = Vector2(5, 5)
 Target = NodePath("../Player")
 
 [node name="Enemy2" parent="." node_paths=PackedStringArray("Target") groups=["Enemies"] instance=ExtResource("9_sina0")]
-position = Vector2(2031, 1683)
+position = Vector2(2082, 236)
 scale = Vector2(5, 5)
 Target = NodePath("../Player")
 
