@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://conq2yhjvp4a4"]
 
 [ext_resource type="Script" path="res://Scripts/options.gd" id="1_wldta"]
-[ext_resource type="Texture2D" uid="uid://dfj2fvku10oti" path="res://Images/Stephane Boutin.jpeg" id="2_qe7rh"]
+[ext_resource type="Texture2D" uid="uid://b85tew2ter2br" path="res://Sprites/Background menu.jpeg" id="2_qe7rh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yx12x"]
 bg_color = Color(0, 0, 0, 1)
@@ -75,5 +75,5 @@ text = "VOLVER"
 
 [connection signal="pressed" from="VBoxContainer/Volume" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Resolution" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]

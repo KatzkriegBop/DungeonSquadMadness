@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="DungeonSquadMadness 0.1"
-run/main_scene="res://Scenes/Levels/mapa 1.tscn"
+run/main_scene="res://Scenes/Menus/menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
