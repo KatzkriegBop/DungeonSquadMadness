@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxybca2kyjgdb"]
+[gd_scene load_steps=7 format=3 uid="uid://cxybca2kyjgdb"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_3uiff"]
 [ext_resource type="Texture2D" uid="uid://b85tew2ter2br" path="res://Sprites/Background menu.jpeg" id="1_yekoo"]
+[ext_resource type="FontFile" uid="uid://bj6t726cjsxre" path="res://AngelBanditDemoRegular.ttf" id="3_dslxc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yx12x"]
 bg_color = Color(0, 0, 0, 0)
@@ -33,22 +34,31 @@ expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = -2.0
-offset_top = 160.0
-offset_right = 348.0
-offset_bottom = -233.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -562.0
+offset_top = -249.0
+offset_right = 502.0
+offset_bottom = 308.0
+grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.870012, 0.76057, 0.389988, 1)
+theme_override_fonts/font = ExtResource("3_dslxc")
+theme_override_font_sizes/font_size = 56
+text = "Dungeon Squad Madness"
 
 [node name="Play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 8
+size_flags_vertical = 0
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_yx12x")
 text = "JUGAR
