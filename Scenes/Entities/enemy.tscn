@@ -1,90 +1,20 @@
-[gd_scene load_steps=20 format=3 uid="uid://dt08t3jig2b7x"]
+[gd_scene load_steps=10 format=3 uid="uid://dt08t3jig2b7x"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_acqm8"]
-[ext_resource type="Texture2D" uid="uid://lp883bnlsb6" path="res://Sprites/TestEnemy_Idle.png" id="1_vqlrr"]
+[ext_resource type="Texture2D" uid="uid://2exppgonuarj" path="res://Sprites/Cerdo_Igneo.png" id="2_m5x13"]
 [ext_resource type="Script" path="res://Scripts/animated_sprite_2d.gd" id="3_5v5nn"]
 [ext_resource type="PackedScene" uid="uid://cnxibisa17a23" path="res://Scenes/Objects/hitbox_component.tscn" id="4_ardui"]
 [ext_resource type="PackedScene" uid="uid://c83sbyilhfpv4" path="res://Scenes/Objects/flippable_shape.tscn" id="5_axm3l"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cms25"]
-atlas = ExtResource("1_vqlrr")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eydln"]
-atlas = ExtResource("1_vqlrr")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t4hqq"]
-atlas = ExtResource("1_vqlrr")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l4bdr"]
-atlas = ExtResource("1_vqlrr")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j6psy"]
-atlas = ExtResource("1_vqlrr")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tjmal"]
-atlas = ExtResource("1_vqlrr")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fav28"]
-atlas = ExtResource("1_vqlrr")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ncdtr"]
-atlas = ExtResource("1_vqlrr")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gxsv8"]
-atlas = ExtResource("1_vqlrr")
-region = Rect2(256, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xf85a"]
-atlas = ExtResource("1_vqlrr")
-region = Rect2(288, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ocqag"]
-atlas = ExtResource("1_vqlrr")
-region = Rect2(320, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxv62"]
+atlas = ExtResource("2_m5x13")
+region = Rect2(0, 0, 720, 623)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_60qw4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cms25")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eydln")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t4hqq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l4bdr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j6psy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tjmal")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fav28")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ncdtr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gxsv8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xf85a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ocqag")
+"texture": SubResource("AtlasTexture_sxv62")
 }],
 "loop": true,
 "name": &"default",
@@ -92,7 +22,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3ng4"]
-size = Vector2(23.7514, 17.738)
+size = Vector2(23.7785, 14.3153)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jatv4"]
 font_size = 35
@@ -107,13 +37,14 @@ script = ExtResource("1_acqm8")
 Health = 200.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.841233, 0.821133)
+position = Vector2(1.00001, -1)
+scale = Vector2(-0.0293498, 0.0294001)
 sprite_frames = SubResource("SpriteFrames_60qw4")
 autoplay = "default"
 script = ExtResource("3_5v5nn")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(1.63682, 1.46162)
+position = Vector2(1.62499, -1)
 scale = Vector2(0.872637, 1.29232)
 shape = SubResource("RectangleShape2D_t3ng4")
 
@@ -122,7 +53,7 @@ position = Vector2(1, 1)
 flipabble_sprite = NodePath("../AnimatedSprite2D")
 
 [node name="FlippableShape" parent="HitboxComponent" instance=ExtResource("5_axm3l")]
-position = Vector2(-16, 0)
+position = Vector2(-13, -2)
 debug_color = Color(0.932223, 0.176746, 0.48425, 0.42)
 default_position = Vector2(16, 0)
 

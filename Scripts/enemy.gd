@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 @export var Target: CharacterBody2D
 
 @onready var attack_timer = $AttackTimer
@@ -38,7 +37,6 @@ func update_hpBar():
 	if maxHealth:
 		health_bar.scale.x = (Health/maxHealth)
 		health_text.text = str(Health)
-	
 
 func _ready() -> void:
 	maxHealth = Health

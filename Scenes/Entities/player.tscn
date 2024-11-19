@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c83sbyilhfpv4" path="res://Scenes/Objects/flippable_shape.tscn" id="4_1crym"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1slop"]
+radius = 6.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xntv4"]
 atlas = ExtResource("2_0fw7c")
@@ -137,7 +138,7 @@ position = Vector2(9.53674e-07, -8.88178e-16)
 flipabble_sprite = NodePath("../AnimatedSprite2D")
 
 [node name="FlippableShape" parent="HitboxComponent" instance=ExtResource("4_1crym")]
-position = Vector2(15.9827, 0)
+position = Vector2(11.9967, -0.189549)
 default_position = Vector2(10, 0)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
