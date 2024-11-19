@@ -7,7 +7,7 @@ func _ready() -> void:
 	options.exit_options_menu.connect(_on_exit_options_menu)
 
 func _on_play_pressed() -> void:
-	pass
+	get_tree().change_scene_to_file("res://Scenes/Levels/mapa 1.tscn")
 
 func _on_options_pressed() -> void:
 	margin_container.visible= false
