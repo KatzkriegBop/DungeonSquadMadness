@@ -1,16 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://conq2yhjvp4a4"]
+[gd_scene load_steps=5 format=3 uid="uid://cy4fmfka64vlr"]
 
-[ext_resource type="Script" path="res://Scripts/options.gd" id="1_wldta"]
-[ext_resource type="Texture2D" uid="uid://b85tew2ter2br" path="res://Sprites/Background menu.jpeg" id="2_qe7rh"]
+[ext_resource type="Script" path="res://Scripts/options.gd" id="1_4ghdb"]
+[ext_resource type="Texture2D" uid="uid://b85tew2ter2br" path="res://Sprites/Background menu.jpeg" id="2_1prb5"]
+[ext_resource type="PackedScene" uid="uid://6651q1twgen4" path="res://Scenes/Menus/Tab_container.tscn" id="3_smrhg"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yx12x"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwwhs"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_awsu3"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="SystemFont" id="SystemFont_7a63a"]
+font_names = PackedStringArray("Bookman Old Style", "MS UI Gothic")
+subpixel_positioning = 0
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -19,16 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_wldta")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.230315, 0.230315, 0.230315, 1)
+script = ExtResource("1_4ghdb")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -37,43 +24,35 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_qe7rh")
+texture = ExtResource("2_1prb5")
 expand_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -152.5
-offset_top = -135.5
-offset_right = 152.5
-offset_bottom = 135.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = -48
 
-[node name="Volume" type="Button" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxFlat_yx12x")
-text = "VOLUMEN"
+theme_override_colors/font_color = Color(0.772549, 0.701961, 0.443137, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = SubResource("SystemFont_7a63a")
+theme_override_font_sizes/font_size = 35
+text = "OPCIONES
+"
+horizontal_alignment = 1
 
-[node name="Resolution" type="Button" parent="VBoxContainer"]
+[node name="Control" parent="TextureRect/VBoxContainer" instance=ExtResource("3_smrhg")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxFlat_lwwhs")
-text = "RESOLUCION"
+size_flags_vertical = 3
 
-[node name="Back" type="Button" parent="VBoxContainer"]
+[node name="Back" type="Button" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxFlat_awsu3")
+size_flags_vertical = 8
 text = "VOLVER"
 
-[connection signal="pressed" from="VBoxContainer/Volume" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Resolution" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="button_down" from="TextureRect/VBoxContainer/Back" to="." method="_on_back_button_down"]
