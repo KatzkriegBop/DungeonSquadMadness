@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://d0dcwfg0dlnhq"]
+[gd_scene load_steps=34 format=3 uid="uid://d0dcwfg0dlnhq"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_8f2ao"]
 [ext_resource type="Texture2D" uid="uid://btbp0iwq7euj3" path="res://Sprites/Ataque_Ladron.png" id="2_0fw7c"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://chg8hev80u5tc" path="res://Sprites/Ladron_quieto_Nuevo.png" id="2_xmg4b"]
 [ext_resource type="PackedScene" uid="uid://cnxibisa17a23" path="res://Scenes/Objects/hitbox_component.tscn" id="3_aw84y"]
 [ext_resource type="PackedScene" uid="uid://c83sbyilhfpv4" path="res://Scenes/Objects/flippable_shape.tscn" id="4_1crym"]
+[ext_resource type="Texture2D" uid="uid://buhbmha8ogd0f" path="res://Sprites/Ladron_Salto.png" id="4_3114s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1slop"]
 radius = 6.0
@@ -58,6 +59,42 @@ region = Rect2(0, 2730, 1365, 1365)
 atlas = ExtResource("2_xmg4b")
 region = Rect2(1365, 2730, 1365, 1365)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_88e08"]
+atlas = ExtResource("4_3114s")
+region = Rect2(0, 0, 1365, 1365)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2vas"]
+atlas = ExtResource("4_3114s")
+region = Rect2(0, 0, 1365, 1365)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wb85"]
+atlas = ExtResource("4_3114s")
+region = Rect2(0, 0, 1365, 1365)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8jdl"]
+atlas = ExtResource("4_3114s")
+region = Rect2(1365, 0, 1365, 1365)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccjdl"]
+atlas = ExtResource("4_3114s")
+region = Rect2(1365, 0, 1365, 1365)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u01or"]
+atlas = ExtResource("4_3114s")
+region = Rect2(1365, 0, 1365, 1365)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwpi6"]
+atlas = ExtResource("4_3114s")
+region = Rect2(2730, 0, 1365, 1365)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kaeqx"]
+atlas = ExtResource("4_3114s")
+region = Rect2(2730, 0, 1365, 1365)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuv28"]
+atlas = ExtResource("4_3114s")
+region = Rect2(2730, 0, 1365, 1365)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_7v5dg"]
 animations = [{
 "frames": [{
@@ -105,6 +142,38 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88e08")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2vas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wb85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8jdl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccjdl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u01or")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fwpi6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kaeqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iuv28")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 10.0
 }]
 
 [sub_resource type="AnimationRootNode" id="AnimationRootNode_68r2t"]
@@ -129,7 +198,7 @@ shape = SubResource("CapsuleShape2D_1slop")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.025117, 0.0245169)
 sprite_frames = SubResource("SpriteFrames_7v5dg")
-animation = &"attack"
+animation = &"jump"
 autoplay = "default"
 script = ExtResource("2_hm8f0")
 
