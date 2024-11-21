@@ -200,8 +200,10 @@ shape = SubResource("CapsuleShape2D_1slop")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.025117, 0.0245169)
 sprite_frames = SubResource("SpriteFrames_7v5dg")
-animation = &"jump"
+animation = &"attack"
 autoplay = "default"
+frame = 3
+frame_progress = 1.0
 script = ExtResource("2_hm8f0")
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("flipabble_sprite") instance=ExtResource("3_aw84y")]
@@ -209,7 +211,7 @@ position = Vector2(9.53674e-07, -8.88178e-16)
 flipabble_sprite = NodePath("../AnimatedSprite2D")
 
 [node name="FlippableShape" parent="HitboxComponent" instance=ExtResource("4_1crym")]
-position = Vector2(11.9967, -0.189549)
+position = Vector2(11.5813, 0.284324)
 default_position = Vector2(10, 0)
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
