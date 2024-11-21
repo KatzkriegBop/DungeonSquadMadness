@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/flipabbleShape.gd" id="1_i6dxf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oh03u"]
-size = Vector2(30.5918, 39.9454)
+size = Vector2(30.401, 31.1158)
 
 [node name="FlippableShape" type="CollisionShape2D"]
 position = Vector2(-1, 0)

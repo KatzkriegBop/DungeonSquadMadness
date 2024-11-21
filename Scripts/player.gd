@@ -14,20 +14,21 @@ extends CharacterBody2D
 @onready var attackhitbox = $HitboxComponent/FlippableShape
 @onready var sprites = $AnimatedSprite2D
 var AttackMoment = false
-
+var CanAttack = true
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -500.0
-
+const DAMAGE = 15
+const ATTACK_COOLDOWN = 0.5
 
 func _physics_process(delta: float) -> void:
 	
 	var bodies = $HitboxComponent.get_overlapping_bodies()
 	for body in bodies:
 		if body.is_in_group("Enemies") and AttackMoment:
-			body.Health -= 10
+			body.Health -= 15
 			body.attacked = true
-	
+			$SlashHit.play()
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -52,10 +53,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _input(event):
-	if event.is_action_pressed("Basic_Attack"):
+	if event.is_action_pressed("Basic_Attack") and CanAttack:
 		AttackMoment = true
 		sprites.play("attack")
+		$Slash.play()
 		attackhitbox.debug_color = Color("RED")
+		CanAttack = false
+		$Timer2.start(ATTACK_COOLDOWN)
 		$Timer.start(.01)
 
 
@@ -69,4 +73,9 @@ func _on_timer_timeout() -> void:
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	sprites.play("default")
+	pass # Replace with function body.
+
+
+func _on_timer_2_timeout() -> void:
+	CanAttack = true
 	pass # Replace with function body.
