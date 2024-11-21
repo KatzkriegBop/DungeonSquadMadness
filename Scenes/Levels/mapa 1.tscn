@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://cxtgbaaqtllr7"]
+[gd_scene load_steps=25 format=4 uid="uid://cxtgbaaqtllr7"]
 
 [ext_resource type="Texture2D" uid="uid://w36moscuvqsl" path="res://Sprites/Final/Final/Background_0.png" id="1_2heu8"]
 [ext_resource type="PackedScene" uid="uid://c5i8emfr6ra73" path="res://Scenes/UI/ui.tscn" id="1_ksy84"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dkceuncsufbyy" path="res://Sprites/Final/Final/Salt.png" id="7_fwqwd"]
 [ext_resource type="PackedScene" uid="uid://d0dcwfg0dlnhq" path="res://Scenes/Entities/player.tscn" id="8_ulw37"]
 [ext_resource type="PackedScene" uid="uid://dt08t3jig2b7x" path="res://Scenes/Entities/enemy.tscn" id="9_sina0"]
+[ext_resource type="PackedScene" uid="uid://barqq6ohsikcn" path="res://portal.tscn" id="11_klby4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4vbps"]
 texture = ExtResource("3_428wt")
@@ -2455,3 +2456,7 @@ Target = NodePath("../Player")
 position = Vector2(2574, 1674)
 scale = Vector2(5, 5)
 Target = NodePath("../Player")
+
+[node name="Portal" parent="." instance=ExtResource("11_klby4")]
+position = Vector2(13248, 988)
+nivel_4 = "nivel_4"

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://barqq6ohsikcn"]
+
+[ext_resource type="Script" path="res://portalScript.gd" id="1_arhyj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2h03y"]
+size = Vector2(115, 1973)
+
+[node name="Portal" type="Area2D"]
+script = ExtResource("1_arhyj")
+nivel_4 = "nivel_4.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2h03y")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
