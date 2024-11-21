@@ -2448,12 +2448,32 @@ scale = Vector2(5, 5)
 Target = NodePath("../Player")
 
 [node name="Enemy2" parent="." node_paths=PackedStringArray("Target") groups=["Enemies"] instance=ExtResource("9_sina0")]
-position = Vector2(2031, 1683)
+position = Vector2(3708, 1661)
+scale = Vector2(5, 5)
+Target = NodePath("../Player")
+
+[node name="Enemy4" parent="." node_paths=PackedStringArray("Target") groups=["Enemies"] instance=ExtResource("9_sina0")]
+position = Vector2(5625, 1586)
+scale = Vector2(5, 5)
+Target = NodePath("../Player")
+
+[node name="Enemy5" parent="." node_paths=PackedStringArray("Target") groups=["Enemies"] instance=ExtResource("9_sina0")]
+position = Vector2(9010, 1622)
+scale = Vector2(5, 5)
+Target = NodePath("../Player")
+
+[node name="Enemy6" parent="." node_paths=PackedStringArray("Target") groups=["Enemies"] instance=ExtResource("9_sina0")]
+position = Vector2(11265, 1644)
+scale = Vector2(5, 5)
+Target = NodePath("../Player")
+
+[node name="Enemy7" parent="." node_paths=PackedStringArray("Target") groups=["Enemies"] instance=ExtResource("9_sina0")]
+position = Vector2(12603, 1675)
 scale = Vector2(5, 5)
 Target = NodePath("../Player")
 
 [node name="Enemy3" parent="." node_paths=PackedStringArray("Target") groups=["Enemies"] instance=ExtResource("9_sina0")]
-position = Vector2(2574, 1674)
+position = Vector2(6998, 1605)
 scale = Vector2(5, 5)
 Target = NodePath("../Player")
 

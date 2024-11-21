@@ -1,21 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://dt08t3jig2b7x"]
+[gd_scene load_steps=14 format=3 uid="uid://b781i63o0qbmb"]
 
-[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_acqm8"]
-[ext_resource type="Texture2D" uid="uid://2exppgonuarj" path="res://Sprites/Cerdo_Igneo.png" id="2_m5x13"]
-[ext_resource type="Script" path="res://Scripts/animated_sprite_2d.gd" id="3_5v5nn"]
-[ext_resource type="PackedScene" uid="uid://cnxibisa17a23" path="res://Scenes/Objects/hitbox_component.tscn" id="4_ardui"]
-[ext_resource type="PackedScene" uid="uid://c83sbyilhfpv4" path="res://Scenes/Objects/flippable_shape.tscn" id="5_axm3l"]
-[ext_resource type="AudioStream" uid="uid://b6rduw6s6moef" path="res://SFX/hit_01.ogg" id="6_4amrb"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sxv62"]
-atlas = ExtResource("2_m5x13")
-region = Rect2(0, 0, 720, 623)
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_ph1qw"]
+[ext_resource type="Texture2D" uid="uid://dmenqpvfxsjow" path="res://Sprites/Golem_de_Slime.png" id="2_fbhrg"]
+[ext_resource type="Script" path="res://Scripts/animated_sprite_2d.gd" id="3_nws0j"]
+[ext_resource type="PackedScene" uid="uid://cnxibisa17a23" path="res://Scenes/Objects/hitbox_component.tscn" id="4_3g2l7"]
+[ext_resource type="PackedScene" uid="uid://c83sbyilhfpv4" path="res://Scenes/Objects/flippable_shape.tscn" id="5_37khe"]
+[ext_resource type="AudioStream" uid="uid://b6rduw6s6moef" path="res://SFX/hit_01.ogg" id="6_1xc2u"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_60qw4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sxv62")
+"texture": ExtResource("2_fbhrg")
 }],
 "loop": true,
 "name": &"default",
@@ -23,15 +19,16 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3ng4"]
-size = Vector2(23.7785, 14.3153)
+size = Vector2(30.2245, 27.8569)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jatv4"]
 font_size = 35
 font_color = Color(0, 0, 0, 1)
 outline_size = 3
 
-[sub_resource type="Animation" id="Animation_nnk7g"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_y3vos"]
+resource_name = "Attack_Left"
+length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -39,10 +36,24 @@ tracks/0/path = NodePath("AnimatedSprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.233333, 0.266667, 0.333333, 0.433333, 0.533333, 0.566667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-4, -1)]
+"values": [Vector2(7, -1), Vector2(9, -1), Vector2(-3, -5), Vector2(-5, -4), Vector2(-5, -1), Vector2(-1, -2), Vector2(1, -1), Vector2(2, -1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.266667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"Attack"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_sdh6f"]
@@ -75,9 +86,8 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_y3vos"]
-resource_name = "Attack_Left"
-length = 0.7
+[sub_resource type="Animation" id="Animation_nnk7g"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -85,24 +95,10 @@ tracks/0/path = NodePath("AnimatedSprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.233333, 0.266667, 0.333333, 0.433333, 0.533333, 0.566667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(7, -1), Vector2(9, -1), Vector2(-3, -5), Vector2(-5, -4), Vector2(-5, -1), Vector2(-1, -2), Vector2(1, -1), Vector2(2, -1)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.266667),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"Attack"
-}]
+"update": 0,
+"values": [Vector2(-4, -1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qaypj"]
@@ -116,26 +112,26 @@ _data = {
 collision_layer = 3
 collision_mask = 3
 slide_on_ceiling = false
-script = ExtResource("1_acqm8")
+script = ExtResource("1_ph1qw")
 Health = 200.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-4, -1)
-scale = Vector2(-0.0293498, 0.0294001)
+scale = Vector2(-0.00689545, 0.00837351)
 sprite_frames = SubResource("SpriteFrames_60qw4")
 autoplay = "default"
-script = ExtResource("3_5v5nn")
+script = ExtResource("3_nws0j")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(1.62499, -1)
+position = Vector2(1.12188, -1.85105)
 scale = Vector2(0.872637, 1.29232)
 shape = SubResource("RectangleShape2D_t3ng4")
 
-[node name="HitboxComponent" parent="." node_paths=PackedStringArray("flipabble_sprite") instance=ExtResource("4_ardui")]
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("flipabble_sprite") instance=ExtResource("4_3g2l7")]
 position = Vector2(1, 1)
 flipabble_sprite = NodePath("../AnimatedSprite2D")
 
-[node name="FlippableShape" parent="HitboxComponent" instance=ExtResource("5_axm3l")]
+[node name="FlippableShape" parent="HitboxComponent" instance=ExtResource("5_37khe")]
 position = Vector2(-12.9621, -3)
 debug_color = Color(0.932223, 0.176746, 0.48425, 0.42)
 default_position = Vector2(16, 0)
@@ -151,9 +147,10 @@ autostart = true
 [node name="HealthBar2" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_top = 7.0
-offset_right = 40.0
-offset_bottom = 47.0
+offset_left = -1.0
+offset_top = -4.0
+offset_right = 39.0
+offset_bottom = 36.0
 scale = Vector2(1.28842, 1.53392)
 
 [node name="BG" type="ColorRect" parent="HealthBar2"]
@@ -185,7 +182,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_4amrb")
+stream = ExtResource("6_1xc2u")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

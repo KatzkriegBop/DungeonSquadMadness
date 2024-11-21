@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 @export var Target: CharacterBody2D
 
 @onready var attack_timer = $AttackTimer
@@ -20,9 +19,10 @@ extends CharacterBody2D
 
 const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
-const ATTACK_CD = 1
+const ATTACK_CD = 0.2
 const ATTACK_DMG = 15
-const REACTION_TIME = 0.5
+const REACTION_TIME = 0.2
+const RANGE = 300
 
 @export var attacked: bool:
 	set(boolean):
@@ -38,10 +38,11 @@ func update_hpBar():
 	if maxHealth:
 		health_bar.scale.x = (Health/maxHealth)
 		health_text.text = str(Health)
-	
 
 func _ready() -> void:
+	reaction_timer.start(0.3)
 	maxHealth = Health
+	update_hpBar()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -58,46 +59,47 @@ func _physics_process(delta: float) -> void:
 	
 	var distance = $".".position.distance_to(Target.position)
 	# Check if target is within reach
-	if distance >= 100:
+	if distance >= 110:
 		if !attacked:
-			velocity.x = direction.x * SPEED
+			if distance >= RANGE:
+				velocity.x = move_toward(velocity.x, 0, SPEED)
+			else:
+				velocity.x = direction.x * SPEED
 		else:
 			velocity.x = -1.25*direction.x * SPEED
-		onRange = false
 	else:
 		if attacked:
 			velocity.x = -1.25*direction.x * SPEED
 		else:
-			onRange = true
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
 
-func _process(delta: float) -> void:
+func Attack():
 	var bodies_collided = $HitboxComponent.get_overlapping_bodies()
-	var found = false
 	for body in bodies_collided:
 		if body == Target:
-			found = true
-			if onRange and canAttack:
-				# Start the reaction timer if not already reacting
-				# Attack when the target is in range and reaction time has passed
+			if canAttack:
 				Target.Health -= ATTACK_DMG
-				canAttack = false
-				canReact = false  # Reset reaction status
-				attack_timer.start(ATTACK_CD)  # Start attack cooldown
+				$AudioStreamPlayer2D.play()
+				
 
-	# If target is out of range, reset reaction status
-	if !found:
-		canReact = false
-	
 func _on_attack_timer_timeout() -> void:
 	canAttack = true
 
 func _on_reaction_time_timeout() -> void:
-	canReact = true  # Allow attack after reaction time ends
-
+	if Target != null:
+		if $HitboxComponent.overlaps_body(Target):
+			if $AnimatedSprite2D.flipped:
+					$AnimationPlayer.play("Attack_Left")
+			else:
+					$AnimationPlayer.play("Attack_Right")
 
 func _on_attacked_timer_timeout() -> void:
 	attacked = false
+	pass # Replace with function body.
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	$AnimationPlayer.play("RESET")
 	pass # Replace with function body.
