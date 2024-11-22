@@ -20,7 +20,7 @@ extends CharacterBody2D
 const SPEED = 200.0
 const JUMP_VELOCITY = -400.0
 const ATTACK_CD = 0.2
-const ATTACK_DMG = 15
+const ATTACK_DMG = 10
 const REACTION_TIME = 0.2
 const RANGE = 300
 
