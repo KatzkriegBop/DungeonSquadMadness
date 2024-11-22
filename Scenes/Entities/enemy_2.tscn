@@ -108,7 +108,7 @@ _data = {
 "RESET": SubResource("Animation_nnk7g")
 }
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy2" type="CharacterBody2D"]
 collision_layer = 3
 collision_mask = 3
 slide_on_ceiling = false
