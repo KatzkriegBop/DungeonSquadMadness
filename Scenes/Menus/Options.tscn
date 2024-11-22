@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/options.gd" id="1_4ghdb"]
 [ext_resource type="Texture2D" uid="uid://b85tew2ter2br" path="res://Sprites/Background menu.jpeg" id="2_1prb5"]
-[ext_resource type="PackedScene" uid="uid://6651q1twgen4" path="res://Scenes/Menus/Tab_container.tscn" id="3_smrhg"]
+[ext_resource type="PackedScene" path="res://Scenes/Menus/Tab_container.tscn" id="3_smrhg"]
 
 [sub_resource type="SystemFont" id="SystemFont_7a63a"]
 font_names = PackedStringArray("Bookman Old Style", "MS UI Gothic")
