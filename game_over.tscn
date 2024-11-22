@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb4ttmqm417wp"]
+
+[ext_resource type="Script" path="res://game_over.gd" id="1_4c61q"]
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_4c61q")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 168.0
+offset_top = 72.0
+offset_right = 982.0
+offset_bottom = 277.0
+theme_override_font_sizes/font_size = 150
+text = "Game Over
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Continuar" type="Button" parent="."]
+offset_left = 324.0
+offset_top = 280.0
+offset_right = 798.0
+offset_bottom = 424.0
+theme_override_font_sizes/font_size = 80
+text = "Continuar"
+
+[node name="Salir" type="Button" parent="."]
+offset_left = 320.0
+offset_top = 460.0
+offset_right = 810.0
+offset_bottom = 612.0
+theme_override_font_sizes/font_size = 80
+text = "Salir"
+
+[connection signal="pressed" from="Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="Continuar" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Salir" to="." method="_on_salir_pressed"]

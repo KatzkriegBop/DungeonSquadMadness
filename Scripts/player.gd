@@ -5,6 +5,7 @@ extends CharacterBody2D
 	set(new_value):
 		if new_value <= 0:
 			Health = 0
+			get_tree().change_scene_to_file("res://game_over.tscn")
 			print("Game Over")
 			$".".queue_free()
 		else:
