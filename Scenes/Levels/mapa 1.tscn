@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dkceuncsufbyy" path="res://Sprites/Final/Final/Salt.png" id="7_fwqwd"]
 [ext_resource type="PackedScene" uid="uid://d0dcwfg0dlnhq" path="res://Scenes/Entities/player.tscn" id="8_ulw37"]
 [ext_resource type="PackedScene" uid="uid://dt08t3jig2b7x" path="res://Scenes/Entities/enemy.tscn" id="9_sina0"]
-[ext_resource type="PackedScene" path="res://portal.tscn" id="11_klby4"]
+[ext_resource type="PackedScene" uid="uid://barqq6ohsikcn" path="res://portal.tscn" id="11_klby4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4vbps"]
 texture = ExtResource("3_428wt")
